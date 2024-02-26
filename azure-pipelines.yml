@@ -29,3 +29,10 @@ steps:
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)'
     artifact: 'drop'
+
+- task: DownloadPipelineArtifact@2
+  displayName: 'Download artifact'
+  inputs:
+    artifact: 'drop'
+    path: $(System.ArtifactsDirectory)
+
