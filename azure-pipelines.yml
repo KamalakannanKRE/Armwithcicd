@@ -29,9 +29,3 @@ steps:
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)/publish'  # Corrected from 'drop'
     artifact: 'drop'
-
-- task: DownloadPipelineArtifact@2
-  displayName: 'Download Artifact'
-  inputs:
-    path: $(Build.ArtifactStagingDirectory)/download  # Specify the correct path where the artifact is expected
-    artifact: 'drop'
