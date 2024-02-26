@@ -33,5 +33,5 @@ steps:
 - task: DownloadPipelineArtifact@2
   displayName: 'Download Artifact'
   inputs:
-    artifact: 'drop'  # Make sure this matches the artifact name
-    path: $(Build.ArtifactStagingDirectory)/download  # Specify a different path to download the artifact
+    artifact: 'drop'
+    path: $(Build.ArtifactStagingDirectory)/download  # Specify the correct path where the artifact is expected
