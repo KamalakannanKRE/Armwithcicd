@@ -20,19 +20,18 @@ steps:
   displayName: 'dotnet publish $(buildConfiguration)'
   inputs:
     command: publish
-    publishwebprojects: True
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    publishWebProjects: True  # Corrected from 'publishwebprojects'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish'
     zipAfterPublish: false
 
 - task: PublishPipelineArtifact@1
-  displayName: 'publish artifacts'
+  displayName: 'Publish Artifact'
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)'
+    targetPath: '$(Build.ArtifactStagingDirectory)/publish'  # Corrected from 'drop'
     artifact: 'drop'
 
 - task: DownloadPipelineArtifact@2
-  displayName: 'Download artifact'
+  displayName: 'Download Artifact'
   inputs:
     artifact: 'drop'
     path: $(System.ArtifactsDirectory)
-
